@@ -1,0 +1,10 @@
+C:\Users\stant\source\repos\wpfVer2\bin\Debug\wpfVer2.exe.config
+C:\Users\stant\source\repos\wpfVer2\bin\Debug\wpfVer2.exe
+C:\Users\stant\source\repos\wpfVer2\bin\Debug\wpfVer2.pdb
+C:\Users\stant\source\repos\wpfVer2\obj\Debug\wpfVer2.csprojAssemblyReference.cache
+C:\Users\stant\source\repos\wpfVer2\obj\Debug\wpfVer2.Form1.resources
+C:\Users\stant\source\repos\wpfVer2\obj\Debug\wpfVer2.Properties.Resources.resources
+C:\Users\stant\source\repos\wpfVer2\obj\Debug\wpfVer2.csproj.GenerateResource.cache
+C:\Users\stant\source\repos\wpfVer2\obj\Debug\wpfVer2.csproj.CoreCompileInputs.cache
+C:\Users\stant\source\repos\wpfVer2\obj\Debug\wpfVer2.exe
+C:\Users\stant\source\repos\wpfVer2\obj\Debug\wpfVer2.pdb
