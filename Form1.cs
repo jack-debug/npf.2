@@ -51,6 +51,7 @@ namespace wpfVer2
                     client.AllowNatTraversal(true);
                     client.DontFragment = true;
                     client.Send(sendBytes, sendBytes.Length); // this actually sends the packet
+                    flood(ip, port, client, message);
                 }
                 catch
                 {
