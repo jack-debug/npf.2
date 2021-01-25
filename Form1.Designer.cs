@@ -39,6 +39,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.messageText = new System.Windows.Forms.TextBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -96,7 +98,7 @@
             // 
             this.start.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.start.ForeColor = System.Drawing.Color.Black;
-            this.start.Location = new System.Drawing.Point(37, 230);
+            this.start.Location = new System.Drawing.Point(37, 284);
             this.start.Name = "start";
             this.start.Size = new System.Drawing.Size(139, 57);
             this.start.TabIndex = 5;
@@ -107,7 +109,7 @@
             // stop
             // 
             this.stop.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stop.Location = new System.Drawing.Point(249, 230);
+            this.stop.Location = new System.Drawing.Point(249, 284);
             this.stop.Name = "stop";
             this.stop.Size = new System.Drawing.Size(139, 57);
             this.stop.TabIndex = 6;
@@ -154,12 +156,25 @@
             this.messageText.Text = "HTTP/GET/1.1";
             this.messageText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(12, 233);
+            this.trackBar1.Maximum = 250;
+            this.trackBar1.Minimum = 1;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(400, 45);
+            this.trackBar1.TabIndex = 11;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar1.Value = 10;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(424, 299);
+            this.ClientSize = new System.Drawing.Size(424, 362);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.messageText);
             this.Controls.Add(this.label4);
@@ -173,6 +188,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "npf.2";
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,6 +207,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox messageText;
+        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 
