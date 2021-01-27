@@ -13,11 +13,7 @@ namespace wpfVer2
 {
     public partial class UDPtrack : Form
     {
-        private const string V = ":";
-        public bool active = true;
-        public string ip = Form1.UDPip;
-        public int port = Form1.UDPport;
-        public int packets = Form1.UDPsent;
+        public bool active;
         public UDPtrack()
         {
             InitializeComponent();
@@ -25,13 +21,14 @@ namespace wpfVer2
 
         private void UDPtrack_Load(object sender, EventArgs e)
         {
-            label4.Text = ip + ":" + port.ToString();
-            while (active)
-            {
-                packets = Form1.UDPsent;
-                label3.Text = packets.ToString();
-                Thread.Sleep(200);
-            }
+            label4.Text = Form1.UDPip + ":" + Form1.UDPport.ToString();
+            Task.Factory.StartNew(this.update);
+        }
+        private void update()
+        {
+            label3.Text = Form1.UDPsent.ToString();
+            Thread.Sleep(200);
+            update();
         }
     }
 }

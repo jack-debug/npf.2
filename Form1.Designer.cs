@@ -124,6 +124,7 @@
             this.threadText.Size = new System.Drawing.Size(164, 20);
             this.threadText.TabIndex = 7;
             this.threadText.Text = "10";
+            this.threadText.TextChanged += new System.EventHandler(this.threadText_TextChanged);
             // 
             // label4
             // 
